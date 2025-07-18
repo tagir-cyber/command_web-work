@@ -1,7 +1,60 @@
-inner-block{
-    display: flex;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
 }
 
-.block-menu{
-    background
+.header {
+    background-color: #ffffff;
+    padding: 20px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.menu__list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.menu__link {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.product {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #e0e0e0;
+}
+
+.product h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.product p {
+    font-size: 1.2em;
+    margin: 20px 0;
+}
+
+.buy-button {
+    background-color: #007aff;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.buy-button:hover {
+    background-color: #005bb5;
 }
