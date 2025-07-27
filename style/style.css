@@ -62,20 +62,23 @@
     fill: #007aff;
   }
 
-  .product {
-    background-color: #c9defa;
-    border-radius: 20px;
-    padding: 40px;
-    max-width: 900px;
-    margin: 40px auto;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    gap: 40px;
-  }
+.product {
+  position: relative; /* добавлено */
+  background-color: #c9defa;
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 900px;
+  margin: 40px auto;
+  box-sizing: border-box;
+  /* удаляем flex и gap, чтобы не мешали абсолютному позиционированию */
+  /* display: flex; */
+  /* align-items: center; */
+  /* gap: 40px; */
+  min-height: 350px; /* чтобы блок был достаточно высоким */
+}
 
   .product-text {
-    flex: 1;
+  max-width: 55%;
   }
 
   .product-text h1 {
@@ -104,13 +107,16 @@
     background-color: #e0e0e0;
   }
 
-  .product-image {
-    max-width: 300px;
-    width: 100%;
-    border-radius: 20px;
-    /* box-shadow: 0 4px 10px rgba(0,0,0,0.1); */
-    object-fit: contain;
-  }
+.product-image {
+  position: absolute;
+  bottom: 0px;
+  right: 40px;
+  max-width: 300px;
+  width: 100%;
+  border-radius: 2px;
+  object-fit: contain;
+  margin-top: 0;
+}
 
   @media (max-width: 700px) {
     .product {
@@ -122,3 +128,156 @@
       margin-top: 20px;
     }
   }
+
+  .product-slider {
+  max-width: 300px;
+  margin-top: 20px;
+  user-select: none;
+}
+
+.slides {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.slide-image {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  pointer-events: none;
+}
+
+#slide1:checked ~ .slides .slide1,
+#slide2:checked ~ .slides .slide2,
+#slide3:checked ~ .slides .slide3,
+#slide4:checked ~ .slides .slide4 {
+  opacity: 1;
+  pointer-events: auto;
+  position: relative;
+}
+
+/* Миниатюры */
+.thumbnails {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.thumbnails .thumb {
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  display: inline-block;
+  transition: border-color 0.3s;
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+}
+
+.thumbnails .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+
+#slide1:checked ~ .thumbnails label[for="slide1"],
+#slide2:checked ~ .thumbnails label[for="slide2"],
+#slide3:checked ~ .thumbnails label[for="slide3"],
+#slide4:checked ~ .thumbnails label[for="slide4"] {
+  border-color: #007aff;
+}
+
+.popular-products {
+  background-color: #f5f3e8;
+  padding: 40px 20px;
+  border-radius: 20px;
+  margin: 60px auto 40px;
+  max-width: 1200px;
+  box-sizing: border-box;
+}
+
+.popular-products h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #1c1c1c;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.product-card img {
+  width: 100%;
+  max-width: 150px;
+  border-radius: 15px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.product-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  color: #222;
+}
+
+.product-card .price {
+  font-size: 0.875rem;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.product-card .price span {
+  font-weight: 700;
+  margin-left: 5px;
+}
+
+.product-card .btn-buy {
+  background-color: #1c1c1c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  width: 100%;
+  max-width: 140px;
+  transition: background-color 0.3s ease;
+}
+
+.product-card .btn-buy:hover {
+  background-color: #444;
+}
+
+/* Адаптив для маленьких экранов */
+@media (max-width: 480px) {
+  .products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
