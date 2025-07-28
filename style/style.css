@@ -63,18 +63,14 @@
   }
 
 .product {
-  position: relative; /* добавлено */
+  position: relative;
   background-color: #c9defa;
   border-radius: 20px;
   padding: 40px;
   max-width: 900px;
   margin: 40px auto;
   box-sizing: border-box;
-  /* удаляем flex и gap, чтобы не мешали абсолютному позиционированию */
-  /* display: flex; */
-  /* align-items: center; */
-  /* gap: 40px; */
-  min-height: 350px; /* чтобы блок был достаточно высоким */
+  min-height: 350px;
 }
 
   .product-text {
@@ -275,7 +271,6 @@
   background-color: #444;
 }
 
-/* Адаптив для маленьких экранов */
 @media (max-width: 480px) {
   .products-grid {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
