@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
+    background-color: #faf8e0; /* светлый голубой цвет фона */
 }
 
 .header {
@@ -12,7 +12,7 @@ body {
 }
 
 .container {
-    width: 80%;
+    width: 1300px;
     margin: 0 auto;
     box-sizing: border-box;
 }
@@ -39,10 +39,12 @@ body {
     cursor: pointer;
     font-stretch: condensed;
     display: inline-flex;
-    align-items: center;
-    height: 100%;
+    align-items: center;       /* Вертикальное выравнивание */
+    justify-content: flex-start; /* Выравнивание по левому краю, чтобы можно было сдвинуть вправо */
+    height: 100%;              /* Высота равна высоте родителя */
     line-height: normal;
-    padding: 0 4px;
+    padding: 0 4px;             /* Исходные отступы по горизонтали */
+    padding-left: 130px;         /* Добавляем дополнительный отступ слева для сдвига текста вправо */
 }
 
 .header__icons {
@@ -125,24 +127,29 @@ body {
     }
 }
 
+/* Изменённый блок карточек */
 .cards-container {
     display: flex;
-    justify-content: space-between;
-    margin: 40px 0;
+    gap: 20px; /* расстояние между карточками */
+    max-width: 950px; /* ширина совпадает с синим контейнером */
+    margin: 40px auto; /* центрирование по горизонтали */
+    box-sizing: border-box;
+    padding: 0 20px; /* по желанию, внутренние отступы */
 }
 
 .card {
-    background: #dfd6f7; /* Цвет фона для нечетных карточек (левая сторона) */
+    flex: 1;
+    background: #dfd6f7; /* лиловый фон для нечетных */
     border-radius: 25px;
     padding: 20px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    flex: 1;
-    margin: 0 10px;
     transition: transform 0.3s;
+    box-sizing: border-box;
+    margin: 0; /* убираем внешние отступы */
 }
 
 .card:nth-child(even) {
-    background-color: #fffab2;;
+    background-color: #fffab2; /* жёлтый фон для чётных */
 }
 
 .card:hover {
@@ -160,7 +167,7 @@ body {
 }
 
 .card .button {
-    background-color: #007aff;
+    background-color: #2a2e30;
     color: rgb(255, 255, 255);
     border: none;
     border-radius: 8px;
@@ -170,11 +177,7 @@ body {
 }
 
 .card .button:hover {
-    background-color: #005bb5;
-}
-
-.card .button:hover {
-    background-color: #005bb5;
+    background-color: #000000;
 }
 
 .popular-products {
@@ -200,7 +203,7 @@ body {
 }
 
 .product-card {
-    background: #fff;
+    background: #ffffff;
     border-radius: 15px;
     padding: 15px;
     box-sizing: border-box;
